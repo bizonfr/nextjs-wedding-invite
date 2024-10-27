@@ -1,0 +1,13 @@
+{
+  "siteIntro": "WE ARE GETTING MARRIED",
+  "eventDate": "Event Date",
+  "invitationGreeting": "Dear",
+  "invitationIntro": "You Are Cordially Invited",
+  "invitationContent": "Our joy will be more complete with your presence in our special day.",
+  "invitationContentTextAlign": "left",
+  "invitationOutro": "We are looking forward to seeing you.",
+  "btnAddToMyCalendar": "Add to my calendar",
+  "guestCheckin": {
+    "pleaseScanInvitation": "Please scan your invitation.."
+  }
+}
