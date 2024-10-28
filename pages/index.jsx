@@ -2,11 +2,16 @@ import AddToCalendar from "react-add-to-calendar";
 import QRCode from "qrcode.react";
 import useSWR from "swr";
 
+
 import Head from "@src/components/Head";
 import resolvePath from "@src/utils/resolvePath";
 import appConfig from "@src/config/app";
 import { useTranslation, defaultLocale } from "@src/i18n";
+
 import guestList from "./guest_list.json";
+
+import useInvite from '@src/hooks/useInvite'
+
 
 const translateConfig = (appConfig, locale) => {
   if (!locale || locale === defaultLocale) {
@@ -52,6 +57,18 @@ const ShowInvite = ({ currentUrl, guestListLastUpdatedAt, guest }) => {
     location: `${venue.city}, ${venue.country}`,
     startTime: calendarInfo.timeStartISO,
     endTime: calendarInfo.timeEndISO
+  }
+
+  const [inviteResponse, error] = useInvite()
+
+  // there was an error
+  if (error) {
+    return <div>... some error happened</div>
+  }
+
+  // still loading the data from the backend
+  if (!inviteResponse) {
+    return <div>Loading ...</div>
   }
 
   return (
